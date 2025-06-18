@@ -1,24 +1,53 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState, useEffect } from "react";
+import { Box, CircularProgress, Container, Card } from "@mui/material";
+import Header from "./components/Header";
+import GDPCharts from "./components/GDPCharts";
+// import mockGDP from "./data/mockGDP";
+import { fetchIndiaGDP } from "./services/api";
 
 function App() {
+  const [gdpData, setGdpData] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const loadData = async () => {
+      const data = await fetchIndiaGDP();
+      setGdpData(data);
+      setLoading(false);
+    };
+
+    loadData();
+  }, []);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Container
+      sx={{
+        height: "100%",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        // backgroundColor: "#f5f5f5",
+      }}
+    >
+      <Card
+        raised="true"
+        sx={{
+          padding: "10px",
+          paddingBottom: "30px",
+          paddingRight: "30px",
+          minWidth: 800,
+        }}
+      >
+        <Header></Header>
+        {loading ? (
+          <Box display="flex" justifyContent="center" my={5}>
+            <CircularProgress></CircularProgress>
+          </Box>
+        ) : (
+          <GDPCharts data={gdpData}></GDPCharts>
+        )}
+      </Card>
+    </Container>
   );
 }
 
