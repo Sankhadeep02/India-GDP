@@ -62,7 +62,7 @@ src/
 
 ```bash
 git clone https://github.com/your-username/india-gdp-visualization.git
-cd india-gdp-visualization
+cd India-GDP
 ```
 
 ### 2. Install Dependencies
