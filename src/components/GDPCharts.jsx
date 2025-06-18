@@ -1,6 +1,12 @@
-// import { Tooltip } from "@mui/material";
 import React from "react";
-import { Bar, BarChart, ResponsiveContainer, XAxis, YAxis, Tooltip } from "recharts";
+import {
+  Bar,
+  BarChart,
+  ResponsiveContainer,
+  XAxis,
+  YAxis,
+  Tooltip,
+} from "recharts";
 import CustomTooltip from "./CustomTooltip";
 
 const GDPCharts = ({ data }) => {

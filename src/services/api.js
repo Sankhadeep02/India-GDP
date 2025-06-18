@@ -7,7 +7,10 @@ export const fetchIndiaGDP = async () => {
 
     const formattedData = data[1]
       .filter((item) => item.value !== null)
-      .map((item) => ({ year: item.date, value: (item.value / 1e12).toFixed(2) }))
+      .map((item) => ({
+        year: item.date,
+        value: (item.value / 1e12).toFixed(2),
+      }))
       .reverse();
 
     return formattedData;

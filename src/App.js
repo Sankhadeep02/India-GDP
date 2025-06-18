@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 import { Box, CircularProgress, Container, Card } from "@mui/material";
 import Header from "./components/Header";
 import GDPCharts from "./components/GDPCharts";
-// import mockGDP from "./data/mockGDP";
 import { fetchIndiaGDP } from "./services/api";
 
 function App() {
@@ -26,7 +25,6 @@ function App() {
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
-        // backgroundColor: "#f5f5f5",
       }}
     >
       <Card
